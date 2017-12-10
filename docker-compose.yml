@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+  fast-backend:
+    build:
+      context: ./fast-backend/
+    volumes:
+      - ./fast-backend:/go/src/github.com/rccpccl/moback/fast-backend
+    working_dir: /go/src
+    ports:
+      - "8081:8080"
+
+  slow-backend:
+    build:
+      context: ./slow-backend/
+    volumes:
+      - ./slow-backend:/go/src/github.com/rccpccl/moback/slow-backend
+    working_dir: /go/src
+    ports:
+      - "8082:8080"
